@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 # Welcome to ASP.NET Core
 
 We've made some big updates in this release, so it’s **important** that you spend a few minutes to learn what’s new.
@@ -37,3 +38,7 @@ You've created a new ASP.NET Core project. [Learn what's new](https://go.microso
 *   [Publish to Microsoft Azure Web Apps](https://go.microsoft.com/fwlink/?LinkID=398609)
 
 We would love to hear your [feedback](https://go.microsoft.com/fwlink/?LinkId=518015)
+=======
+# r1whms
+R1 Warehouse Management System (dotnet core, entity framework, bootstrap).
+>>>>>>> 1eda59581ce478a370175e9143a67e63e7a00456
