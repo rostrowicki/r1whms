@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
+using r1whms.Models;
 
 namespace r1whms
 {
@@ -29,6 +30,10 @@ namespace r1whms
         {
             // Add framework services.
             services.AddMvc();
+
+            // DB context            
+            // services.AddDbContext<ItemsContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
+            // services.AddDbContext<WarehousesContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
