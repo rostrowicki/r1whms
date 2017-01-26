@@ -29,8 +29,8 @@ namespace r1whms.Models
             }
 
             var warehouses = new Warehouse[] {
-                new Warehouse{Id=0, Name="Basement", Description="Basement Storage Box"},
-                new Warehouse{Id=1, Name="Garage", Description="Garage Container"}
+                new Warehouse{Id=4, Name="Basement", Description="Basement Storage Box"},
+                new Warehouse{Id=5, Name="Garage", Description="Garage Container"}
             };
 
             foreach (Warehouse w in warehouses)
