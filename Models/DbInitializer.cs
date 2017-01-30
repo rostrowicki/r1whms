@@ -8,30 +8,40 @@ namespace r1whms.Models
     public class DbInitializer
     {
 
-        public static void Initialize(AppDbContext context) {
+        public static void Initialize(AppDbContext context)
+        {
             context.Database.EnsureCreated();
 
-            if (context.Items.Any())
-            {
-                return; // DB has been seeded
-            }
+            var items = new Item[] { };
 
-            var items = new Item[] {
-                new Item{Id = 0, Name = "CPU", Description="i5"},
-                new Item{Id = 1, Name = "GPU", Description="RX480"},
-                new Item{Id = 2, Name = "Mouse", Description="g600"},
-                new Item{Id = 3, Name = "Keyboard", Description="AlloyFPS"}
+            if (!context.Items.Any())
+            {
+                items = new Item[] {
+                new Item{Name = "CPU", Description="i5"},
+                new Item{Name = "GPU", Description="RX480"},
+                new Item{Name = "Mouse", Description="g600"},
+                new Item{Name = "Keyboard", Description="AlloyFPS"}
             };
+            }
 
             foreach (Item i in items)
             {
-                
+                context.Items.Add(i);
             }
 
-            var warehouses = new Warehouse[] {
-                new Warehouse{Id=4, Name="Basement", Description="Basement Storage Box"},
-                new Warehouse{Id=5, Name="Garage", Description="Garage Container"}
+            context.SaveChanges();
+
+            var warehouses = new Warehouse[] { };
+
+            if (!context.Warehouses.Any())
+            {
+
+                warehouses = new Warehouse[] {
+                new Warehouse{Name="Basement", Description="Basement Storage Box"},
+                new Warehouse{Name="Garage", Description="Garage Container"}
             };
+
+            }
 
             foreach (Warehouse w in warehouses)
             {
@@ -39,7 +49,7 @@ namespace r1whms.Models
             }
 
             context.SaveChanges();
-            
+
         }
 
         public DbInitializer()
