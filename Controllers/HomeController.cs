@@ -9,6 +9,11 @@ namespace r1whms.Controllers
 {
     public class HomeController : Controller
     {
+        private AppDbContext _context;
+
+        public HomeController(AppDbContext context) {
+            _context = context;
+        }
         public IActionResult Index()
         {
             ViewData["Message"] = "Warehouse A";
@@ -19,6 +24,8 @@ namespace r1whms.Controllers
                 new Item() {Id = 2, Name="Item2", Description="Item2 Description"}
             };
             
+            itemList = _context.Set<Item>().ToList();
+
             return View(itemList);
         }
 
