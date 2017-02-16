@@ -18,11 +18,16 @@ namespace r1whms.Controllers
         }
 
         public IActionResult Edit(String Id) {
-            return View();
+            // TODO read from db
+            Item i = new Item();
+            return View(i);
         }
 
         public IActionResult New() {
-            return View();
+            Item i = new Item();
+            i.Name = "";
+            i.Description = "";
+            return View("Edit", i);
         }
 
         public IActionResult Delete(String Id) {
